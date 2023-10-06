@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody2D))]
 
+
+// works on windows 9
 public class PlayerController : MonoBehaviour
 {
     Vector2 moveInput;
