@@ -130,6 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 5
   runSpeed: 10
+  jumpStrength: 2
   _isMoving: 0
   _isRunning: 0
   _isFacingRight: 1
@@ -238,6 +239,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: b209fd4b-fcf7-4a80-bf0d-f63c2dfd3a4f
     m_ActionName: Player/Run[/Keyboard/leftShift]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 00234713-498e-4dc2-8a48-876c18afc9eb
+    m_ActionName: Player/Jump[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -290,3 +295,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3461b3e8c17c1d2488a314a617cf63ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  castFilter:
+    useTriggers: 0
+    useLayerMask: 0
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
+  groundDistance: 0.05
