@@ -2,15 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Rigidbody2D), typeof(TouchingDirections))]
 
-
-// works on windows 9
 public class PlayerController : MonoBehaviour
 {
     Vector2 moveInput;
-    public float walkSpeed = 5f;
+    public float walkSpeed = 6f;
     public float runSpeed = 10f;
+    public float jumpStrength = 2f;
+
+    TouchingDirections touchingDirections;
+ 
 
     public float currentMoveSpeed
     {
@@ -77,11 +79,14 @@ public class PlayerController : MonoBehaviour
     }
     Rigidbody2D rb;
     Animator animator;
+  
 
     private void Awake()
     {
        rb = GetComponent<Rigidbody2D>(); 
-        animator = GetComponent<Animator>();
+       animator = GetComponent<Animator>();
+        touchingDirections = GetComponent<TouchingDirections>();
+
     }
 
     // Start is called before the first frame update
@@ -98,14 +103,19 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(moveInput.x * currentMoveSpeed, rb.velocity.y);
+        transform.Translate(Vector2.right * (currentMoveSpeed * Time.deltaTime)); //this makes Bibby automatically walk to the right
+
+       // rb.velocity = new Vector2(moveInput.x * currentMoveSpeed, rb.velocity.y);
     }
 
    public void OnMove(InputAction.CallbackContext context)
     {
+
         moveInput = context.ReadValue<Vector2>(); //this makes x and y movements
 
-        IsMoving = moveInput != Vector2.zero; //Is moving is true as long as its not equal to zero
+        IsMoving = true; //make moving status always true upon first button press
+
+     //   IsMoving = moveInput != Vector2.zero; //Is moving is true as long as its not equal to zero
 
         SetFacingDirection(moveInput);
     }
@@ -135,4 +145,14 @@ public class PlayerController : MonoBehaviour
             IsRunning = false;
         }
     }
+
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        if(context.started && touchingDirections.IsGrounded)
+        {
+            animator.SetTrigger(AnimationStrings.jump);
+            rb.velocity = new Vector2(rb.velocity.x, jumpStrength);
+        }
+    }
 }
+
