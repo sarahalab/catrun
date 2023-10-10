@@ -1,9 +1,11 @@
 using UnityEngine;
+using UnityEngine.InputSystem.Processors;
 
 public class Health : MonoBehaviour
 {
     [SerializeField] private float startingHealth;
     public float currentHealth { get; private set; }
+    private bool dead;
 
     private void Awake()
     {
@@ -14,19 +16,16 @@ public class Health : MonoBehaviour
     {
         currentHealth = Mathf.Clamp(currentHealth - _damage, 0, startingHealth); 
 
-        if(currentHealth > 0)
+        if(currentHealth <= 0 && !dead)
         {
-
-        }
-        else
-        {
-
+            GetComponent<PlayerController>().enabled = false;
+            dead = true;
         }
     }
 
-    private void Update()
+    /*private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
             TakeDamage(1);
-    }
+    }*/
 }
