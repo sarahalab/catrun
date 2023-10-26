@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     Vector2 moveInput;
-    public float walkSpeed = 6f;
+    public float walkSpeed = 7f;
     public float runSpeed = 10f;
     public float jumpStrength = 2f;
 
