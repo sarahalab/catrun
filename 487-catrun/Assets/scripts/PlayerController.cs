@@ -103,9 +103,9 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-       // transform.Translate(Vector2.right * (currentMoveSpeed * Time.deltaTime)); //this makes Bibby automatically walk to the right
+        transform.Translate(Vector2.right * (currentMoveSpeed * Time.deltaTime)); //GEOMETRY DASH this makes Bibby automatically walk to the right
 
-        rb.velocity = new Vector2(moveInput.x * currentMoveSpeed, rb.velocity.y);
+       // rb.velocity = new Vector2(moveInput.x * currentMoveSpeed, rb.velocity.y); //COMMENT OUT FOR GEOMETRY DASH
     }
 
    public void OnMove(InputAction.CallbackContext context)
@@ -113,9 +113,9 @@ public class PlayerController : MonoBehaviour
 
         moveInput = context.ReadValue<Vector2>(); //this makes x and y movements
 
-       // IsMoving = true; //make moving status always true upon first button press
+        IsMoving = true; //GEOMETRY DASH make moving status always true upon first button press
 
-        IsMoving = moveInput != Vector2.zero; //Is moving is true as long as its not equal to zero
+        //IsMoving = moveInput != Vector2.zero; //Is moving is true as long as its not equal to zero COMMENT OUT FOR GEOMETRY DASG
 
         SetFacingDirection(moveInput);
     }
