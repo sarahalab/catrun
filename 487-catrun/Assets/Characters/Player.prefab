@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 261439236233346433}
   - component: {fileID: 4095865272194419423}
   - component: {fileID: 4247230957154597361}
+  - component: {fileID: 6326451274528949412}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -86,7 +87,7 @@ SpriteRenderer:
   m_Size: {x: 1.6, y: 1.6}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &2897602933115817662
@@ -133,7 +134,6 @@ MonoBehaviour:
   jumpStrength: 2
   _isMoving: 0
   _isRunning: 0
-  _isFacingRight: 1
 --- !u!114 &261439236233346433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -310,3 +310,15 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   groundDistance: 0.05
+--- !u!114 &6326451274528949412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4305104764763230521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4db1f816d0c9b64aab818a161d4ecf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
