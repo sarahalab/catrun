@@ -193,6 +193,7 @@ GameObject:
   - component: {fileID: 40684435}
   - component: {fileID: 40684434}
   - component: {fileID: 40684438}
+  - component: {fileID: 40684439}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -298,6 +299,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 1233422977}
+--- !u!114 &40684439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40684433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae7f88af305c1074a89f8ef89844b85a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &50812426 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 238023717771170971, guid: 6740b55ed760ee84ebd792f36faf1cdb, type: 3}
@@ -31664,7 +31677,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1467170280
 RectTransform:
   m_ObjectHideFlags: 0
