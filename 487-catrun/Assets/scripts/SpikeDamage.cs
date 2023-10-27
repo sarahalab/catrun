@@ -11,13 +11,14 @@ public class SpikeDamage : MonoBehaviour
         if (collision.tag == "Player")
         {
             collision.GetComponent<Health>().TakeDamage(damage);
+            collision.GetComponent<PlayerController>().Die();
             StartCoroutine(DelayedRespawn());
         }
     }
     public IEnumerator DelayedRespawn()
     {
         {
-            yield return new WaitForSeconds(1.0f); // Waits 1 seconds to respawn the player
+            yield return new WaitForSeconds(0.5f); 
             SceneManager.LoadScene(Respawn);
         }
     }
