@@ -66,6 +66,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /*
     public bool _isFacingRight = true;
     public bool IsFacingRight { get { return _isFacingRight; }
         private set
@@ -77,6 +78,9 @@ public class PlayerController : MonoBehaviour
             _isFacingRight = value;
         }
     }
+
+    */
+
     Rigidbody2D rb;
     Animator animator;
   
@@ -117,9 +121,10 @@ public class PlayerController : MonoBehaviour
 
         //IsMoving = moveInput != Vector2.zero; //Is moving is true as long as its not equal to zero COMMENT OUT FOR GEOMETRY DASG
 
-        SetFacingDirection(moveInput);
+     //   SetFacingDirection(moveInput); //DISABLE FOR GEOMETRY DASH
     }
 
+    /*
     private void SetFacingDirection(Vector2 moveInput)
     {
         if (moveInput.x > 0 && !IsFacingRight)
@@ -133,6 +138,7 @@ public class PlayerController : MonoBehaviour
             IsFacingRight = false;
         }
     }
+    */
 
     public void onRun(InputAction.CallbackContext context) //'context' regard the pressing of a keyboard button here
     {
