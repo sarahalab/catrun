@@ -32,5 +32,9 @@ public class FishCollector : MonoBehaviour
             score += 1000;
             fishScore.text = "Score: " + score;
         }
+        if (collision.gameObject.CompareTag("FinishLine"))
+        {
+            startScoreCounter = false;
+        }
     }
 }
