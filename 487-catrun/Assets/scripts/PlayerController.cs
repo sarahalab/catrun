@@ -68,6 +68,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    [SerializeField] private AudioSource deathSoundEffect;
     public bool IsDead
     {
         get
@@ -76,6 +77,7 @@ public class PlayerController : MonoBehaviour
         }
         set
         {
+            deathSoundEffect.Play();
             animator.SetBool(AnimationStrings.death, value);
         }
     }
@@ -106,17 +108,23 @@ public class PlayerController : MonoBehaviour
         touchingDirections = GetComponent<TouchingDirections>();
 
     }
-
+    [SerializeField] private float boundary = -5.0f; // the value we will use for Y
+    private Vector3 initialPosition;
     // Start is called before the first frame update
     void Start()
     {
-        
+        initialPosition = transform.position;
     }
+
+    [SerializeField] private AudioSource drownEffect;
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (transform.position.y < boundary)
+        {
+            drownEffect.Play();
+        }
     }
 
     private void FixedUpdate()
@@ -170,6 +178,8 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //play jump sound with jump action
+    [SerializeField] private AudioSource jumpSoundEffect;
     public void OnJump(InputAction.CallbackContext context)
     {
         if (!CanControl)
@@ -177,6 +187,7 @@ public class PlayerController : MonoBehaviour
 
         if(context.started && touchingDirections.IsGrounded)
         {
+            jumpSoundEffect.Play();
             animator.SetTrigger(AnimationStrings.jump);
             rb.velocity = new Vector2(rb.velocity.x, jumpStrength);
         }

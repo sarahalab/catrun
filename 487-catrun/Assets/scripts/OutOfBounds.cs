@@ -9,6 +9,7 @@ public class OutOfBounds : MonoBehaviour
 
     private Health playerHealth;
     private SpikeDamage spikeDamage;
+    [SerializeField] private AudioSource drownSoundEffect;
 
     private void Start()
     {
@@ -20,12 +21,16 @@ public class OutOfBounds : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        CheckOffMap();
+        
+            CheckOffMap();
     }
+
+    
     private void CheckOffMap()
     {
         if (transform.position.y < boundary)
         {
+            //drownSoundEffect.Play();
             playerHealth.TakeDamage(fallDamage);
             StartCoroutine(spikeDamage.DelayedRespawn());
         }
